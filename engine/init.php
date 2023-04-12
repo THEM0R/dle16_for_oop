@@ -1,14 +1,6 @@
 <?php
 /*
 =====================================================
- DataLife Engine - by SoftNews Media Group
------------------------------------------------------
- http://dle-news.ru/
------------------------------------------------------
- Copyright (c) 2004-2023 SoftNews Media Group
-=====================================================
- This code is protected by copyright
-=====================================================
  File: init.php
 -----------------------------------------------------
  Use: Initialization
@@ -70,7 +62,10 @@ $xfieldsdata = "";
 $xfields = array();
 $custom_navigation = false;
 $news_found = false;
+
 $metatags = array ( 'title' => $config['home_title'], 'description' => $config['description'], 'keywords' => $config['keywords'], 'header_title' => "" );
+//$metatags = array ();
+
 $config['charset'] = strtolower(trim($config['charset']));
 $_SERVER['PHP_SELF'] = htmlspecialchars( $_SERVER['PHP_SELF'], ENT_QUOTES, $config['charset'] );
 
@@ -175,12 +170,17 @@ if( !isset ( $subaction ) AND isset ($_REQUEST['subaction']) ) $subaction = totr
 if( isset ($_REQUEST['doaction']) ) $doaction = totranslit ($_REQUEST['doaction']); else $doaction = "";
 if( $do == "tags" AND !$_GET['tag'] ) $do = "alltags";
 
+// тут получаємо маршрут модуля
+
 $dle_module = $do;
 if (!$do AND !$subaction AND $year) $dle_module = "date";
 elseif (!$do AND isset($_GET['catalog'])) $dle_module = "catalog";
 elseif (!$do) $dle_module = $subaction;
 if (!$subaction AND $newsid) $dle_module = "showfull";
 $dle_module = $dle_module ? $dle_module : "main";
+
+// тут получаємо маршрут модуля
+
 
 if( $config['start_site'] == 3 AND $dle_module == "main" AND  ( !isset($_GET['mod']) OR (isset($_GET['mod']) AND  $_GET['mod'] != "rss") ) ) {
 	$_GET['do'] = "static";
