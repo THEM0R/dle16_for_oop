@@ -1,0 +1,2 @@
+[allow-download]<span class="attachment"><a href="{link}" >{name}</a> [count] [{size}] (cкачувань: {count})[/count]</span>[/allow-download]
+[not-allow-download]<span class="attachment">У вас немає доступу до скачування файлів з нашого серверу</span>[/not-allow-download]
