@@ -123,15 +123,19 @@ abstract class DLEPlugins {
 	public static function Check($source) {
 		
 		if( !is_array( self::$plugins ) ) {
+          // якщо це не масив виконуй код
+
 			self::$root = ROOT_DIR.'/';
 			self::pluginsstartup();
 		}
-		
+
 		$check_file = str_ireplace(self::$root, '', (string)$source);
 
 		if( DIRECTORY_SEPARATOR !== '/' ) {
 			$check_file = str_replace(DIRECTORY_SEPARATOR, '/', $check_file);
 		}
+
+        //pr3(isset(self::$plugins[$check_file]));
 
 		if( isset(self::$plugins[$check_file]) ) {
 
