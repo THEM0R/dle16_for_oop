@@ -23,7 +23,6 @@ if( !defined( 'DATALIFEENGINE' ) ) {
 
 require_once (DLEPlugins::Check(ENGINE_DIR . '/modules/functions.php'));
 
-
 // init vars the.mor
 require_once (ENGINE_DIR . '/themor/init.vars.php');
 
@@ -46,10 +45,10 @@ require_once (ENGINE_DIR . '/themor/init.usergroup.php');
 require_once (ENGINE_DIR . '/themor/init.doc.php');
 
 // init metatags the.mor
-//require_once (ENGINE_DIR . '/themor/init.metatags.php');
+require_once (ENGINE_DIR . '/themor/init.metatags.php');
 
 // init ctn the.mor
-//require_once (ENGINE_DIR . '/themor/init.ctn.php');
+require_once (ENGINE_DIR . '/themor/init.ctn.php');
 
 // init dob the.mor
 require_once (ENGINE_DIR . '/themor/init.dob.php');
@@ -58,15 +57,7 @@ require_once (ENGINE_DIR . '/themor/init.dob.php');
 require_once (ENGINE_DIR . '/themor/init.skin.php');
 // #################################
 
-//pr1($config);
-
-//if ($config['site_offline']) include_once (DLEPlugins::Check(ENGINE_DIR . '/modules/offline.php'));
-
-//if ($config['allow_calendar'] OR $config['allow_archives']) include_once (DLEPlugins::Check(ENGINE_DIR . '/modules/calendar.php'));
-
 if ($config['rss_informer']) include_once (DLEPlugins::Check(ENGINE_DIR . '/modules/rssinform.php'));
-
-//if ($config['allow_links']) include_once (DLEPlugins::Check(ENGINE_DIR . '/modules/links.php'));
 
 include_once (DLEPlugins::Check(ROOT_DIR . '/engine/engine.php'));
 

@@ -5,7 +5,7 @@ if( !defined( 'DATALIFEENGINE' ) ) {
   die( "Hacking attempt!" );
 }
 
-pr($_GET);
+//pr1($_GET);
 
 if (isset ( $_GET['catalog'] )) {
 
@@ -53,8 +53,11 @@ if (isset ( $_GET['category'] )) {
 //pr1($_REQUEST);
 
 if (isset ( $_GET['news_name'] )) $news_name = @$db->safesql ( strip_tags ( str_replace ( '/', '', (string)$_GET['news_name'] ) ) ); else $news_name = '';
+
 if (isset ( $_GET['newsid'] )) $newsid = intval ( $_GET['newsid'] ); else $newsid = 0;
+
 if (isset ( $_GET['cstart'] )) $cstart = intval ( $_GET['cstart'] ); else $cstart = 0;
+
 if (isset ( $_GET['news_page'] )) $news_page = intval ( $_GET['news_page'] ); else $news_page = 0;
 
 if ($cstart < 1) $cstart = 0;
@@ -65,18 +68,49 @@ if( isset( $_REQUEST['action'] ) and $_REQUEST['action'] == "mobile" ) { $_SESSI
 if( !isset( $_SESSION['mobile_disable'] ) ) $_SESSION['mobile_disable'] = 0;
 if( !isset( $_SESSION['mobile_enable'] ) ) $_SESSION['mobile_enable'] = 0;
 
-if( !isset ( $do ) AND isset ($_REQUEST['do']) ) $do = totranslit ( $_REQUEST['do'] ); elseif(isset ( $do )) $do = totranslit ( $do ); else $do = '';
+// тут получаємо маршрут модуля
+// $_REQUEST['do']
+//pr($_REQUEST);
+//pr1($_GET);
 
-if( !isset ( $subaction ) AND isset ($_REQUEST['subaction']) ) $subaction = totranslit ($_REQUEST['subaction']); elseif(isset($subaction)) $subaction = totranslit($subaction); else $subaction = '';
-if( isset ($_REQUEST['doaction']) ) $doaction = totranslit ($_REQUEST['doaction']); else $doaction = "";
-if( $do == "tags" AND !$_GET['tag'] ) $do = "alltags";
+if (!isset ($do) and isset ($_REQUEST['do'])) {
+
+  $do = totranslit($_REQUEST['do']);
+
+} elseif (isset ($do)) {
+
+  $do = totranslit($do);
+
+} else {
+
+  $do = '';
+
+}
+
+// $_REQUEST['do']
+
+
+
+if (!isset ($subaction) and isset ($_REQUEST['subaction'])) $subaction = totranslit($_REQUEST['subaction']); elseif (isset($subaction)) $subaction = totranslit($subaction);
+else $subaction = '';
+if (isset ($_REQUEST['doaction'])) $doaction = totranslit($_REQUEST['doaction']); else $doaction = "";
+if ($do == "tags" and !$_GET['tag']) $do = "alltags";
+
+
 
 $dle_module = $do;
-if (!$do AND !$subaction AND $year) $dle_module = "date";
-elseif (!$do AND isset($_GET['catalog'])) $dle_module = "catalog";
+
+if (!$do and !$subaction and $year) $dle_module = "date";
+
+elseif (!$do and isset($_GET['catalog'])) $dle_module = "catalog";
+
 elseif (!$do) $dle_module = $subaction;
-if (!$subaction AND $newsid) $dle_module = "showfull";
+
+if (!$subaction and $newsid) $dle_module = "showfull";
+
 $dle_module = $dle_module ? $dle_module : "main";
+
+// тут получаємо маршрут модуля
 
 if( $config['start_site'] == 3 AND $dle_module == "main" AND  ( !isset($_GET['mod']) OR (isset($_GET['mod']) AND  $_GET['mod'] != "rss") ) ) {
   $_GET['do'] = "static";

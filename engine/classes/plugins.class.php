@@ -9,13 +9,22 @@
 
 define('PLUGINS_READ_ONLY', false);
 
+
 if( !defined( 'DATALIFEENGINE' ) ) {
 	header( "HTTP/1.1 403 Forbidden" );
 	header ( 'Location: ../../' );
 	die( "Hacking attempt!" );
 }
-
+/*
+ * підключення файлів конфігу
+ */
 @include_once (ENGINE_DIR . '/data/config.php');
+
+
+/*
+ * перевірка
+ * Datalife Engine не включається. Будь ласка, запустіть install.php
+ */
 
 if ( !$config['version_id'] ) {
 

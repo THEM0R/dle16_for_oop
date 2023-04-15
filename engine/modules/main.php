@@ -30,7 +30,7 @@ if ($home_url and clean_url($_SERVER['HTTP_HOST']) != $home_url) {
 } else $replace_url = false;
 // home_url
 
-pr1($dle_module);
+pr('dle_module => ' . $dle_module);
 
 $tpl->load_template('main.tpl');
 

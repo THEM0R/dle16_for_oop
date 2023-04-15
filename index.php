@@ -24,7 +24,8 @@ define('ENGINE_DIR', ROOT_DIR . '/engine');
 // init vars the.mor
 require_once (ENGINE_DIR . '/themor/dump.php');
 
+//pr1($_SERVER);
+
 require_once(ENGINE_DIR . '/classes/plugins.class.php');
 
-
-require_once(DLEPlugins::Check(ROOT_DIR . '/engine/init.php'));
+require_once(DLEPlugins::Check(ROOT_DIR . '/engine/init2.php'));
