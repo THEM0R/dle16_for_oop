@@ -39,6 +39,8 @@ $config['speedbar_separator'] = htmlspecialchars_decode( $config['speedbar_separ
 $config['category_separator'] = htmlspecialchars_decode( $config['category_separator'], ENT_QUOTES);
 $config['tags_separator'] = htmlspecialchars_decode( $config['tags_separator'], ENT_QUOTES);
 
+pr1($do);
+
 if( $do == "download" ) {
   include_once (DLEPlugins::Check(ENGINE_DIR . '/download.php'));
   die();

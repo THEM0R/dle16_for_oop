@@ -289,7 +289,7 @@ if ($is_logged) {
 
 if($config['allow_social'] AND $config['allow_registration']) {
 
-  include_once (ENGINE_DIR . '/data/socialconfig.php');
+  include_once(ENGINE_DIR . '/data/socialconfig.php');
 
   if( !isset($_SESSION['state']) OR (isset($_SESSION['state']) AND !$_SESSION['state']) ) $_SESSION['state'] = md5(uniqid(rand(), TRUE));
 

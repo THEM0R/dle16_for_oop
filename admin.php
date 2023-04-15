@@ -25,5 +25,19 @@ define('DATALIFEENGINE', true);
 define('ROOT_DIR', dirname(__FILE__));
 define('ENGINE_DIR', ROOT_DIR . '/engine');
 
+
+/*
+ * theMor
+ */
+define('MOR_DIR', ENGINE_DIR . '/themor');
+
+// init vars the.mor
+require_once (MOR_DIR . '/dump.php');
+
+/*
+ * підключення файлів конфігу
+ */
+include_once (MOR_DIR . '/init.php');
+
 require_once(ENGINE_DIR . '/classes/plugins.class.php');
-require_once(DLEPlugins::Check(ENGINE_DIR . '/inc/include/init.php'));
+require_once(ENGINE_DIR . '/inc/include/init.php');

@@ -56,3 +56,5 @@ $news_found = false;
 $metatags = array ( 'title' => $config['home_title'], 'description' => $config['description'], 'keywords' => $config['keywords'], 'header_title' => "" );
 $config['charset'] = strtolower(trim($config['charset']));
 $_SERVER['PHP_SELF'] = htmlspecialchars( $_SERVER['PHP_SELF'], ENT_QUOTES, $config['charset'] );
+
+

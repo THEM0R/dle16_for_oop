@@ -631,6 +631,7 @@ if (isset ($_POST['set_new_sort']) and $config['allow_change_sort']) {
   $find_sort = str_replace(".", "", totranslit($_POST['set_new_sort']));
   $direction_sort = str_replace(".", "", totranslit($_POST['set_direction_sort']));
 
+
   if (in_array($_POST['dlenewssortby'], $allowed_sort) and stripos($find_sort, "dle_sort_") === 0) {
 
     if ($_POST['dledirection'] == "desc" or $_POST['dledirection'] == "asc") {

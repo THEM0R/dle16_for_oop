@@ -20,12 +20,22 @@ ini_set ( 'error_reporting', E_ALL ^ E_WARNING ^ E_DEPRECATED ^ E_NOTICE );
 define('DATALIFEENGINE', true);
 define('ROOT_DIR', dirname(__FILE__));
 define('ENGINE_DIR', ROOT_DIR . '/engine');
+/*
+ * theMor
+ */
+define('MOR_DIR', ENGINE_DIR . '/themor');
 
 // init vars the.mor
-require_once (ENGINE_DIR . '/themor/dump.php');
+require_once (MOR_DIR . '/dump.php');
 
-//pr1($_SERVER);
+/*
+ * підключення файлів конфігу
+ */
+include_once (MOR_DIR . '/init.php');
+
 
 require_once(ENGINE_DIR . '/classes/plugins.class.php');
 
-require_once(DLEPlugins::Check(ROOT_DIR . '/engine/init2.php'));
+//require_once(DLEPlugins::Check(ROOT_DIR . '/engine/init2.php'));
+
+require_once(ENGINE_DIR . '/init2.php');

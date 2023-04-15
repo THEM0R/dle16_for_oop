@@ -7,6 +7,8 @@ if( !defined( 'DATALIFEENGINE' ) ) {
   die( "Hacking attempt!" );
 }
 
+
+
 if ( $config['cache_type'] ) {
 
   if( $config['cache_type'] == "2" ) {
@@ -22,3 +24,6 @@ if ( $config['cache_type'] ) {
   $dlefastcache = new dle_fastcache($config);
 
 }
+
+
+//pr3($dlefastcache);

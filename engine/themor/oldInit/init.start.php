@@ -6,7 +6,9 @@ if( !defined( 'DATALIFEENGINE' ) ) {
 }
 
 //pr1($_GET);
-
+/*
+ * catalog
+ */
 if (isset ( $_GET['catalog'] )) {
 
   $catalog = strip_tags ( str_replace ( '/', '', urldecode ( (string)$_GET['catalog'] ) ) );
@@ -14,12 +16,19 @@ if (isset ( $_GET['catalog'] )) {
 
 } else $catalog = '';
 
+
+/*
+ * user
+ */
 if (isset ( $_GET['user'] )) {
+
+
 
   $user = strip_tags ( str_replace ( '/', '', urldecode ( (string)$_GET['user'] ) ) );
   $user = $db->safesql ( $user );
 
   if( preg_match( "/[\||\'|\<|\>|\"|\!|\?|\$|\@|\#|\/|\\\|\&\~\*\+]/", $user ) ) $user="";
+
 
 } else $user = '';
 
@@ -45,6 +54,8 @@ if (isset ( $_GET['category'] )) {
   //pr1($db->safesql ( strip_tags ( $category ) ));
 
   $category = $db->safesql ( strip_tags ( $category ) );
+
+  //pr1($category);
 
   //exit;
 

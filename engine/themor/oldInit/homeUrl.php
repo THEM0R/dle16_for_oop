@@ -6,13 +6,19 @@ if( !defined( 'DATALIFEENGINE' ) ) {
   die( "Hacking attempt!" );
 }
 
-if ( !$config['http_home_url'] ) {
+/*
+ * перевірка чи є юрл сайту
+ */
 
+if ( !$config['http_home_url'] ) {
   $config['http_home_url'] = explode ( "index.php", $_SERVER['PHP_SELF'] );
   $config['http_home_url'] = reset ( $config['http_home_url'] );
   $config['http_home_url'] = "http://" . $_SERVER['HTTP_HOST'] . $config['http_home_url'];
-
 }
+
+/*
+ * перевірка чи є ссл юрл сайту
+ */
 
 if( isSSL() AND stripos( $config['http_home_url'], 'http://' ) !== false ) {
   $config['http_home_url'] = str_replace( "http://", "https://", $config['http_home_url'] );

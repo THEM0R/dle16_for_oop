@@ -692,7 +692,7 @@ $tpl->result['main'] = str_replace('srcset="http://' . $_SERVER['HTTP_HOST'] . '
 $tpl->result['main'] = str_replace('src="https://' . $_SERVER['HTTP_HOST'] . '/', 'src="/', $tpl->result['main']);
 $tpl->result['main'] = str_replace('srcset="https://' . $_SERVER['HTTP_HOST'] . '/', 'srcset="/', $tpl->result['main']);
 
-pr3($tpl->result);
+//pr3($tpl->result);
 
 echo $tpl->result['main'];
 

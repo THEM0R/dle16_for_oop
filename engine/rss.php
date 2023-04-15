@@ -57,7 +57,7 @@ elseif( isset($_GET['do']) AND $_GET['do'] == 'cat' ) $config['home_title'] = st
 
 $self_url = htmlspecialchars($_SERVER['REQUEST_SCHEME'].'://'. $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'], ENT_QUOTES, "utf-8");
 
-pr1($self_url);
+//pr1($self_url);
 
 $rss_content = <<<XML
 <?xml version="1.0" encoding="UTF-8"?>
